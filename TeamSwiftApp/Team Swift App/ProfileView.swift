@@ -11,23 +11,49 @@ struct ProfileView: View {
     
     @State private var recipeLabel: String = ""
     @State private var recipeName: String = ""
-
+    
     var body: some View {
         
-        ZStack {
-            VStack {
-                Text("Profile")
-                Text(recipeLabel)
-                TextField("Recipe Name", text: $recipeName)
-            }
-            .padding()
+        NavigationView {
             
-            Button("+") {
-                
-                print("create textfield")
+            ZStack {
+                VStack {
+                    
+                    Text(recipeLabel)
+                    TextField("Recipe Name", text: $recipeName)
+                        .textFieldStyle(.roundedBorder)
+                    TextField("Recipe Name", text: $recipeName)
+                        .textFieldStyle(.roundedBorder)
+                    TextField("Recipe Name", text: $recipeName)
+                        .textFieldStyle(.roundedBorder)
+                    TextField("Recipe Name", text: $recipeName)
+                        .textFieldStyle(.roundedBorder)
+                    
+                    Spacer()
+                    
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Button {
+                            print("create textfield")
+                        } label: {
+                            Text("+")
+                                .font(.system(.largeTitle))
+                                .frame(width: 77, height:  70)
+                                .foregroundColor(.white)
+                                .padding(.bottom, 7)
+                        }
+                        .background(.blue)
+                        .cornerRadius(38.5)
+                        .padding()
+                    }
+                }
+                .padding()
             }
-            
+            .navigationBarTitle("Profile")
         }
+        .navigationViewStyle(.stack)
     }
 }
 
